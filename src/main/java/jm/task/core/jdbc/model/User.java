@@ -19,7 +19,6 @@ public class User {
     private Byte age;
 
     public User() {
-
     }
 
     public User(String name, String lastName, Byte age) {
@@ -58,5 +57,9 @@ public class User {
 
     public void setAge(Byte age) {
         this.age = age;
+    }
+
+    public String toString() {
+        return getClass().getSimpleName() + " {Id: " + id + ", Name: " + name + ", LastName: " + lastName + ", Age: " + age + "}";
     }
 }

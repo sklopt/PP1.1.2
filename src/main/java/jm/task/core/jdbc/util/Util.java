@@ -21,9 +21,4 @@ public class Util {
     public Connection getConnection() {
         return connection;
     }
-
-    public static void main(String[] args) {
-        Util util = new Util();
-        System.out.println(util);
-    }
 }

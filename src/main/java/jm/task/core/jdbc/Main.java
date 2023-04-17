@@ -1,13 +1,13 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.DAOException;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
-import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws DAOException {
         UserService userService = new UserServiceImpl();
         Scanner sc = new Scanner(System.in);
         System.out.println("""

@@ -2,19 +2,18 @@ package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface UserDao {
-    void createUsersTable() throws SQLException;
+    void createUsersTable() throws DAOException;
 
-    void dropUsersTable() throws SQLException;
+    void dropUsersTable() throws DAOException;
 
-    void saveUser(String name, String lastName, byte age) throws SQLException;
+    void saveUser(String name, String lastName, byte age) throws DAOException;
 
-    void removeUserById(long id) throws SQLException;
+    void removeUserById(long id) throws DAOException;
 
-    List<User> getAllUsers() throws SQLException;
+    List<User> getAllUsers() throws DAOException;
 
-    void cleanUsersTable() throws SQLException;
+    void cleanUsersTable() throws DAOException;
 }

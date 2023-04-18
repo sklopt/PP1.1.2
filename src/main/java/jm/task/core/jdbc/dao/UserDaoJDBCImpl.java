@@ -14,8 +14,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void createUsersTable() throws DAOException {
         String SQLCreateUserTable = "CREATE TABLE IF NOT EXISTS users (Id BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(45) NOT NULL , lastName VARCHAR(65) NOT NULL , age TINYINT UNSIGNED NOT NULL)";
-        Util util = new Util();
-        try (Connection connection = util.getConnection();
+        try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement()) {
             statement.executeUpdate(SQLCreateUserTable);
         } catch (SQLException e) {
@@ -25,8 +24,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void dropUsersTable() throws DAOException {
         String SQLDropUsersTable = "DROP TABLE IF EXISTS users";
-        Util util = new Util();
-        try (Connection connection = util.getConnection();
+        try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement()) {
             statement.executeUpdate(SQLDropUsersTable);
         } catch (SQLException e) {
@@ -36,8 +34,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void saveUser(String name, String lastName, byte age) throws DAOException {
         String SQLSaveUser = "INSERT INTO users (name, lastName, age) VALUES (?, ?, ?)";
-        Util util = new Util();
-        try (Connection connection = util.getConnection();
+        try (Connection connection = Util.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQLSaveUser)) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, lastName);
@@ -50,8 +47,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void removeUserById(long id) throws DAOException {
         String SQLRemoveUserById = "DELETE FROM users WHERE id = (?)";
-        Util util = new Util();
-        try (Connection connection = util.getConnection();
+        try (Connection connection = Util.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQLRemoveUserById)) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
@@ -62,8 +58,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public List<User> getAllUsers() throws DAOException {
         String SQLGetAllUsers = "SELECT * FROM users";
-        Util util = new Util();
-        try (Connection connection = util.getConnection();
+        try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(SQLGetAllUsers)) {
             List<User> userList = new ArrayList<>();
@@ -84,8 +79,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void cleanUsersTable() throws DAOException {
         String SQLCleanUsersTable = "TRUNCATE TABLE users";
-        Util util = new Util();
-        try (Connection connection = util.getConnection();
+        try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement()) {
             statement.executeUpdate(SQLCleanUsersTable);
         } catch (SQLException e) {

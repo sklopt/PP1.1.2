@@ -15,8 +15,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("""
                 Для управления базой данных существуют следующие команды:
-                1: Создать таблицу Users
-                2: Удалить таблицу Users
+                1: Создать таблицу Users database
+                2: Удалить таблицу Users database
                 3: Очистить содержание таблицы Users
                 4: Добавить новых User(ов) в таблицу Users
                 5: Удалить User(а) из таблицы Users (по номеру id)
